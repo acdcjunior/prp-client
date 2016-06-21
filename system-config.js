@@ -5,9 +5,15 @@
  * User Configuration.
  **********************************************************************************************/
 /** Map relative paths to URLs. */
-var map = {};
+var map = {
+    'primeng': 'vendor/primeng',
+};
 /** User packages configuration. */
-var packages = {};
+var packages = {
+    'primeng': {
+        defaultExtension: 'js',
+    }
+};
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
  * Everything underneath this line is managed by the CLI.

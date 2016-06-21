@@ -1,0 +1,4 @@
+/* this was added from primeng's site.css stylesheet, otherwise the multiselect would have the icons misplaced */
+.ui-widget {
+    font-size: 90%;
+}
