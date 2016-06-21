@@ -26,6 +26,27 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 Run `ng github-pages:deploy` to deploy to Github Pages.
 
-## Further help
+###############################################
 
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Steps found at https://github.com/angular/angular-cli#installation
+
+        $ npm install -g angular-cli
+        $ ng new FIRST_ATTEMPT
+        $ cd FIRST_ATTEMPT
+
+- Try to serve
+  - ng serve -> without admin, gives error asking for symlink and stuff. https://github.com/angular/angular-cli/issues/403
+  - REQUIRES RUNNING AS ADMIN:
+  
+          $ ng serve
+
+- Try to test
+  - `$ ng test` -> BUGS due to file limit and stuff. https://github.com/angular/angular-cli/issues/864 https://github.com/angular/angular-cli/issues/977
+  - WORKAROUND:
+
+          $ ng build && ng test --build=false
+
+---
+- Build the gh-pages branch and pushes it
+
+        $ ng github-pages:deploy
