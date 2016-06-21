@@ -50,3 +50,11 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 - Build the gh-pages branch and pushes it
 
         $ ng github-pages:deploy
+
+# Installing primeng
+
+
+     $ npm install primeng --save
+     $ npm install primeui --save
+
+And do the changes showed in the commit.
