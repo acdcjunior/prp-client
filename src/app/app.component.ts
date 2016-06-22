@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES }  from '@angular/router';
+
+import { DialogService }  from './dialog.service';
+import { HeroService }    from './heroes/hero.service';
+
 import {InputText} from 'primeng/primeng';
 import {MultiSelect} from 'primeng/primeng';
 import {SelectItem} from 'primeng/primeng';
@@ -8,7 +13,11 @@ import {SelectItem} from 'primeng/primeng';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [InputText, MultiSelect]
+  providers:  [
+    HeroService,
+    DialogService
+  ],
+  directives: [ROUTER_DIRECTIVES, InputText, MultiSelect]
 })
 export class AppComponent {
   title = 'app works!';
