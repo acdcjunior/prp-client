@@ -7,12 +7,12 @@
 /** Map relative paths to URLs. */
 var map = {
     'primeng': 'vendor/primeng',
+    'angular2-cookie': 'vendor/angular2-cookie'
 };
 /** User packages configuration. */
 var packages = {
-    'primeng': {
-        defaultExtension: 'js',
-    }
+    'primeng': { defaultExtension: 'js', },
+    'angular2-cookie': { main: 'core.js', defaultExtension: 'js' },
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
