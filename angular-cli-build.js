@@ -16,8 +16,14 @@ module.exports = function(defaults) {
       'reflect-metadata/**/*.+(ts|js|js.map)',
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
-      'primeui/**/*.*',
-      'primeng/**/*.+(js|js.map)'
+      'primeui/*.*',
+      'primeui/images/*.*',
+      'primeui/plugins/*.*',
+      'primeui/themes/bootstrap/**/*.*',
+      'primeui/themes/delta/**/*.*',
+      'primeui/themes/omega/**/*.*',
+      'primeng/**/*.+(js|js.map)',
+      'angular2-cookie/**/*.+(js|js.map)'
     ]
   });
 };

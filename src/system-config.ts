@@ -8,13 +8,13 @@
 /** Map relative paths to URLs. */
 const map: any = {
   'primeng': 'vendor/primeng',
+  'angular2-cookie': 'vendor/angular2-cookie'
 };
 
 /** User packages configuration. */
-const packages: any = {
-  'primeng': {
-    defaultExtension: 'js',
-  }
+const packages:any = {
+  'primeng': {defaultExtension: 'js',},
+  'angular2-cookie': {main: 'core.js', defaultExtension: 'js'},
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
