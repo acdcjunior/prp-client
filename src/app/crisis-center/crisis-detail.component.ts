@@ -4,7 +4,7 @@ import { Observable }                   from 'rxjs/Observable';
 import 'rxjs/add/observable/fromPromise';
 
 import { Crisis, CrisisService } from './crisis.service';
-import { DialogService } from '../dialog.service';
+import { DialogService } from '../dialog/dialog.service';
 
 @Component({
   template: `

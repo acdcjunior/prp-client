@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES }  from '@angular/router';
 
-import { DialogService }  from './dialog.service';
+import { DialogService }  from './dialog/dialog.service';
 import { HeroService }    from './heroes/hero.service';
 
 import {InputText} from 'primeng/primeng';
