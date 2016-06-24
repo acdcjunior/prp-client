@@ -1,6 +1,7 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
 
 import { CrisisCenterRoutes } from './crisis-center/crisis-center.routes';
+import { TabelaoCenterRoutes } from './tabelao/tabelao-center.routes';
 import { HeroesRoutes }       from './heroes/heroes.routes';
 
 import { LoginRoutes,
@@ -11,7 +12,8 @@ import { CanDeactivateGuard } from './interfaces';
 export const routes: RouterConfig = [
   ...HeroesRoutes,
   ...LoginRoutes,
-  ...CrisisCenterRoutes
+  ...CrisisCenterRoutes,
+  ...TabelaoCenterRoutes
 ];
 
 export const APP_ROUTER_PROVIDERS = [
