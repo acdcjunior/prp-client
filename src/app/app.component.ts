@@ -10,6 +10,7 @@ import {SelectItem} from 'primeng/primeng';
 import {Button} from 'primeng/primeng';
 
 import {CookieService} from 'angular2-cookie/core';
+import { RepositoryService } from './repository/repository.service'
 
 const COOKIE_KEY = "demo";
 
@@ -21,7 +22,8 @@ const COOKIE_KEY = "demo";
   providers:  [
     HeroService,
     DialogService,
-    CookieService
+    CookieService,
+    RepositoryService
   ],
   directives: [ROUTER_DIRECTIVES, InputText, MultiSelect, Button]
 })
@@ -39,7 +41,7 @@ export class AppComponent implements OnInit {
     this._cookieService.put(COOKIE_KEY, this.cookieValue);
   }
 
-  constructor(private _cookieService:CookieService) {
+  constructor(private _cookieService:CookieService, private _repositoryService: RepositoryService) {
   }
 
   ngOnInit() {
@@ -51,5 +53,12 @@ export class AppComponent implements OnInit {
     this.cities.push({label:'Paris', value:'Paris'});
 
     this.cookieValue = this._cookieService.get(COOKIE_KEY);
+
+    this._repositoryService.pouchdb.get("1").then((filme:any) => {
+      console.log("BD brought: ", filme);
+    }).catch((err:any) => {
+      console.error("Error while .get(): ", err);
+      throw err;
+    });
   }
 }
