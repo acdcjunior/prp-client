@@ -8,13 +8,16 @@
 /** Map relative paths to URLs. */
 const map: any = {
   'primeng': 'vendor/primeng',
-  'angular2-cookie': 'vendor/angular2-cookie'
+  'angular2-cookie': 'vendor/angular2-cookie',
+  'moment': 'vendor/moment/min/moment.min.js',
+  'pouchdb': 'vendor/pouchdb/dist/pouchdb.min.js'
 };
 
 /** User packages configuration. */
 const packages:any = {
   'primeng': {defaultExtension: 'js',},
   'angular2-cookie': {main: 'core.js', defaultExtension: 'js'},
+  'moment': {format: 'cjs'}
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

@@ -23,6 +23,8 @@
     "@angular/router": "3.0.0-alpha.7",
     "angular2-cookie": "^1.2.1",
     "es6-shim": "0.35.1",
+    "moment": "^2.13.0",
+    "pouchdb": "^5.4.4",
     "primeng": "^1.0.0-beta.8",
     "primeui": "^4.1.12",
     "reflect-metadata": "0.1.3",

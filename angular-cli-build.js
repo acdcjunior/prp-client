@@ -23,7 +23,9 @@ module.exports = function(defaults) {
       'primeui/themes/delta/**/*.*',
       'primeui/themes/omega/**/*.*',
       'primeng/**/*.+(js|js.map)',
-      'angular2-cookie/**/*.+(js|js.map)'
+      'angular2-cookie/**/*.+(js|js.map)',
+      'pouchdb/dist/pouchdb.min.js',
+      'moment/min/moment.min.js'
     ]
   });
 };
