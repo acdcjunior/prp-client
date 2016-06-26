@@ -41,10 +41,10 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
           $ ng serve
 
 - Try to test
-  - `$ ng test` -> BUGS due to file limit and stuff. https://github.com/angular/angular-cli/issues/864 https://github.com/angular/angular-cli/issues/977
+  - `$ ng test` -> BUGS due to file limit. https://github.com/angular/angular-cli/issues/864 https://github.com/angular/angular-cli/issues/977
   - WORKAROUND:
 
-          $ ng build && ng test --build=false
+          $ ng build && ng test --build=false --watch=false
 
 ---
 - Build the gh-pages branch and pushes it
