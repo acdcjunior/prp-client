@@ -1,4 +1,4 @@
-export class PrpPage {
+export class PrpClientPage {
   navigateTo() {
     return browser.get('/');
   }
