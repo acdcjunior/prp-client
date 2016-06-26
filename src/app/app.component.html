@@ -1,17 +1,6 @@
-<h1>
-  {{title}}
-</h1>
-<br>
-Cookie:
-<input type="text" pInputText [(ngModel)]="cookieValue" />
-<button pButton type="button" label="Atualizar Cookie" (click)="atualizarValorCookie()"></button>
-<br>
-<br>
-<p-multiSelect [options]="cities" [(ngModel)]="selectedCities"></p-multiSelect>
-<br>
-<hr>
-<h1 class="title">Component Router</h1>
+<h1 class="title">PRP</h1>
 <nav>
+  <a [routerLink]="['/']">Home</a>
   <a [routerLink]="['/crisis-center']">Crisis Center</a>
   <a [routerLink]="['/heroes']">Heroes</a>
   <a [routerLink]="['/login']">Login</a>
@@ -19,4 +8,5 @@ Cookie:
   <a [routerLink]="['/tabelao-center']">Tabelao Center</a>
   <a [routerLink]="['/tabelao-center/admin']">Tabelao Admin</a>
 </nav>
+<hr>
 <router-outlet></router-outlet>

@@ -1,0 +1,10 @@
+<p>
+  {{title}}
+</p>
+<br>
+Cookie:
+<input type="text" pInputText [(ngModel)]="cookieValue" />
+<button pButton type="button" label="Atualizar Cookie" (click)="atualizarValorCookie()"></button>
+<br>
+<br>
+<p-multiSelect [options]="cities" [(ngModel)]="selectedCities"></p-multiSelect>
