@@ -2,17 +2,18 @@
   "_args": [
     [
       {
-        "name": "primeui",
-        "raw": "primeui",
-        "rawSpec": "",
+        "raw": "primeui@^4.1.12",
         "scope": null,
-        "spec": "latest",
-        "type": "tag"
+        "escapedName": "primeui",
+        "name": "primeui",
+        "rawSpec": "^4.1.12",
+        "spec": ">=4.1.12 <5.0.0",
+        "type": "range"
       },
       "N:\\GitHub\\prp"
     ]
   ],
-  "_from": "primeui@latest",
+  "_from": "primeui@>=4.1.12 <5.0.0",
   "_id": "primeui@4.1.12",
   "_inCache": true,
   "_installable": true,
@@ -23,18 +24,19 @@
     "tmp": "tmp/primeui-4.1.12.tgz_1464589976795_0.47880465001799166"
   },
   "_npmUser": {
-    "email": "cagatay.civici@gmail.com",
-    "name": "cagatay.civici"
+    "name": "cagatay.civici",
+    "email": "cagatay.civici@gmail.com"
   },
   "_npmVersion": "3.3.12",
   "_phantomChildren": {},
   "_requested": {
-    "name": "primeui",
-    "raw": "primeui",
-    "rawSpec": "",
+    "raw": "primeui@^4.1.12",
     "scope": null,
-    "spec": "latest",
-    "type": "tag"
+    "escapedName": "primeui",
+    "name": "primeui",
+    "rawSpec": "^4.1.12",
+    "spec": ">=4.1.12 <5.0.0",
+    "type": "range"
   },
   "_requiredBy": [
     "/"
@@ -42,7 +44,7 @@
   "_resolved": "https://registry.npmjs.org/primeui/-/primeui-4.1.12.tgz",
   "_shasum": "0302f071d74e7d453751068e0ceee8f29e31b11b",
   "_shrinkwrap": null,
-  "_spec": "primeui",
+  "_spec": "primeui@^4.1.12",
   "_where": "N:\\GitHub\\prp",
   "author": {
     "name": "PrimeTek"
@@ -76,8 +78,8 @@
   "main": "primeui.min.js",
   "maintainers": [
     {
-      "email": "cagatay.civici@gmail.com",
-      "name": "cagatay.civici"
+      "name": "cagatay.civici",
+      "email": "cagatay.civici@gmail.com"
     }
   ],
   "name": "primeui",
