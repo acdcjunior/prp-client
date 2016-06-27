@@ -12,10 +12,9 @@ import {
 
 import { HomeComponent } from './home.component';
 import { CookieService } from "angular2-cookie/core";
-import { provide } from '@angular/core';
 import {RepositoryService} from "../repository/repository.service";
 
-class MockCookieService {
+class MockCookieService extends CookieService {
   getObject(key:string):Object{
       return "mock";
   }
@@ -27,8 +26,8 @@ class MockRepositoryService {
 
 beforeEachProviders(() => [
   HomeComponent,
-  provide(CookieService, {useClass: MockCookieService}),
-  provide(RepositoryService, {useClass: MockCookieService}),
+  { provide: CookieService, useClass: MockCookieService },
+  { provide: RepositoryService, useClass: MockRepositoryService }
 ]);
 
 describe('Component: Home', () => {
