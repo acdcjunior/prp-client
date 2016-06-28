@@ -20,8 +20,6 @@ module.exports = function(defaults) {
       'primeui/images/*.*',
       'primeui/plugins/*.*',
       'primeui/themes/bootstrap/**/*.*',
-      'primeui/themes/delta/**/*.*',
-      'primeui/themes/omega/**/*.*',
       'primeng/**/*.+(js|js.map)',
       'angular2-cookie/**/*.+(js|js.map)',
       'pouchdb/dist/pouchdb.min.js',
