@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {CookieService} from 'angular2-cookie/core';
 import * as PouchDB from 'pouchdb';
 import * as moment from 'moment';
+import { Observable }     from 'rxjs/Observable';
 
 const POUCHDB_URL_KEY = "POUCHDB_URL_KEY";
 
@@ -36,6 +37,14 @@ export class RepositoryService {
         enteredUrl = prompt("Enter PouchDB URL", initialUrl);
     }
     return enteredUrl;
+  }
+
+  getTodos(): Observable<any> {
+    return Observable
+      .fromPromise(this.pouchdb.allDocs({ include_docs: true }))
+      .flatMap(({ rows }:any) => rows)
+      .map(({ doc }:any) => doc)
+      .map(({_id, title}: any) => ({id: _id, name: title}));
   }
 
 }

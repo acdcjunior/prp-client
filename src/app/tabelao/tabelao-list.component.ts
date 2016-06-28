@@ -3,6 +3,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { Tabelao, TabelaoService } from './tabelao.service';
 
+import {DataTable} from 'primeng/primeng';
+import {Column} from 'primeng/primeng';
+import {RepositoryService} from "../repository/repository.service";
+import {CookieService} from "angular2-cookie/core";
+
 @Component({
   template: `
     <ul class="items">
@@ -12,17 +17,29 @@ import { Tabelao, TabelaoService } from './tabelao.service';
         <span class="badge">{{tabelao.id}}</span> {{tabelao.name}}
       </li>
     </ul>
+    
+    
+    <h3 class="first">Basic</h3>
+    <p-dataTable [value]="tabeloes">
+        <p-column field="id" header="id"></p-column>
+        <p-column field="name" header="name"></p-column>
+    </p-dataTable>
   `,
+  providers: [RepositoryService, CookieService],
+  directives: [DataTable, Column]
 })
 export class TabelaoListComponent implements OnInit, OnDestroy {
-  tabeloes: Tabelao[];
+
+  tabeloes: Tabelao[] = [];
   private selectedId: number;
   private sub: any;
 
   constructor(
     private service: TabelaoService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private repository: RepositoryService
+  ) { }
 
   isSelected(tabelao: Tabelao) { return tabelao.id === this.selectedId; }
 
@@ -31,8 +48,20 @@ export class TabelaoListComponent implements OnInit, OnDestroy {
       .params
       .subscribe(params => {
         this.selectedId = +params['id'];
-        TabelaoService.getTabeloes()
-          .then(tabeloes => this.tabeloes = tabeloes);
+
+        this.repository.getTodos().subscribe(
+          (x) => {
+            console.log('Next: ', x);
+            this.tabeloes.push(x);
+          },
+          function (err) {
+            console.log('Error: %s', err);
+          },
+          function () {
+            console.log('Completed');
+          });
+
+        //TabelaoService.getTabeloes().then(tabeloes => this.tabeloes = tabeloes);
       });
   }
 
