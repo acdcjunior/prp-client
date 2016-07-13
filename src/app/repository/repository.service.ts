@@ -4,7 +4,7 @@ import * as PouchDB from 'pouchdb';
 import * as moment from 'moment';
 import { Observable }     from 'rxjs/Observable';
 
-const POUCHDB_URL_KEY = "POUCHDB_URL_KEY";
+const POUCHDB_URL_KEY = "MainUrl";
 
 @Injectable()
 export class RepositoryService {
@@ -45,6 +45,13 @@ export class RepositoryService {
       .flatMap(({ rows }:any) => rows)
       .map(({ doc }:any) => doc)
       .map(({_id, title}: any) => ({id: _id, name: title}));
+  }
+
+  getIds(): Observable<any> {
+    return Observable
+      .fromPromise(this.pouchdb.allDocs({ include_docs: false }))
+      .flatMap(({ rows }:any) => rows)
+      .map(({ id }:any) => id);
   }
 
 }
