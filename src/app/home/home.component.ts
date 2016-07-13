@@ -7,53 +7,51 @@ import {Button} from 'primeng/primeng';
 
 import {CookieService} from 'angular2-cookie/core';
 import { RepositoryService } from '../repository/repository.service'
+import {ConfigService} from "../repository/config.service";
 
 const COOKIE_KEY = "demo";
 
 @Component({
   moduleId: module.id,
   selector: 'app-home',
-  templateUrl: 'home.component.html',
+  template: `
+    <p>
+      {{title}}
+    </p>
+    <br>
+    <label>main:   <input type="text" pInputText [(ngModel)]="main" size="50" /></label><br>
+    <label>listas: <input type="text" pInputText [(ngModel)]="listas" /></label><br>
+    <label>cc:     <input type="text" pInputText [(ngModel)]="cc" /></label><br>
+    <button pButton type="button" label="Atualizar Valores Config" (click)="atualizarValoresConfig()"></button>
+  `,
   styleUrls: ['home.component.css'],
   providers:  [
-    CookieService,
+    ConfigService,
     RepositoryService
   ],
   directives: [InputText, MultiSelect, Button]
 })
 export class HomeComponent implements OnInit {
 
-  title = 'HOME works!';
+  title:string = 'HOME works!';
+  private main: string;
+  private listas: string;
+  private cc: string;
 
-  cookieValue: string;
-
-  cities: SelectItem[];
-
-  selectedCity: string[];
-
-  atualizarValorCookie(){
-    this._cookieService.put(COOKIE_KEY, this.cookieValue);
+  //noinspection JSUnusedGlobalSymbols
+  atualizarValoresConfig(){
+    this.configService.main = this.main;
+    this.configService.listas = this.listas;
+    this.configService.cc = this.cc;
   }
 
-  constructor(private _cookieService:CookieService, private _repositoryService: RepositoryService) {
+  constructor(private configService:ConfigService, private _repositoryService: RepositoryService) {
   }
 
   ngOnInit() {
-    this.cities = [];
-    this.cities.push({label:'New York', value:'New York'});
-    this.cities.push({label:'Rome', value:'Rome'});
-    this.cities.push({label:'London', value:'London'});
-    this.cities.push({label:'Istanbul', value:'Istanbul'});
-    this.cities.push({label:'Paris', value:'Paris'});
-
-    this.cookieValue = this._cookieService.get(COOKIE_KEY);
-
-    this._repositoryService.pouchdb.get("1").then((filme:any) => {
-      console.log("BD brought: ", filme);
-    }).catch((err:any) => {
-      console.error("Error while .get(): ", err);
-      throw err;
-    });
+    this.main = this.configService.main;
+    this.listas = this.configService.listas;
+    this.cc = this.configService.cc;
   }
 
 
