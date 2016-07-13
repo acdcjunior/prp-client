@@ -20,11 +20,11 @@ export class ConfigService {
     return this._cookieService.get(ConfigKeys[key]);
   }
 
-  public get main() {
+  public get mainUrl() {
     return this.get(ConfigKeys.MainUrl);
   }
 
-  public set main(valor:string) {
+  public set mainUrl(valor:string) {
     this.put(ConfigKeys.MainUrl, valor);
   }
 

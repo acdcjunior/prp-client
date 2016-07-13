@@ -19,7 +19,7 @@ const COOKIE_KEY = "demo";
       {{title}}
     </p>
     <br>
-    <label>main:   <input type="text" pInputText [(ngModel)]="main" size="50" /></label><br>
+    <label>mainUrl:   <input type="text" pInputText [(ngModel)]="mainUrl" size="50" /></label><br>
     <label>listas: <input type="text" pInputText [(ngModel)]="listas" /></label><br>
     <label>cc:     <input type="text" pInputText [(ngModel)]="cc" /></label><br>
     <button pButton type="button" label="Atualizar Valores Config" (click)="atualizarValoresConfig()"></button>
@@ -34,13 +34,13 @@ const COOKIE_KEY = "demo";
 export class HomeComponent implements OnInit {
 
   title:string = 'HOME works!';
-  private main: string;
+  private mainUrl: string;
   private listas: string;
   private cc: string;
 
   //noinspection JSUnusedGlobalSymbols
   atualizarValoresConfig(){
-    this.configService.main = this.main;
+    this.configService.mainUrl = this.mainUrl;
     this.configService.listas = this.listas;
     this.configService.cc = this.cc;
   }
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.main = this.configService.main;
+    this.mainUrl = this.configService.mainUrl;
     this.listas = this.configService.listas;
     this.cc = this.configService.cc;
   }
