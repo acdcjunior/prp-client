@@ -19,9 +19,9 @@ const COOKIE_KEY = "demo";
       {{title}}
     </p>
     <br>
-    <label>mainUrl:   <input type="text" pInputText [(ngModel)]="mainUrl" size="50" /></label><br>
-    <label>listas: <input type="text" pInputText [(ngModel)]="listas" /></label><br>
-    <label>cc:     <input type="text" pInputText [(ngModel)]="cc" /></label><br>
+    <label>mainUrl: <input type="text" pInputText [(ngModel)]="mainUrl" size="50" /></label><br>
+    <label>listas:  <input type="text" pInputText [(ngModel)]="listas" /></label><br>
+    <label>cc:      <input type="text" pInputText [(ngModel)]="cc" /></label><br>
     <button pButton type="button" label="Atualizar Valores Config" (click)="atualizarValoresConfig()"></button>
   `,
   styleUrls: ['home.component.css'],
@@ -53,6 +53,5 @@ export class HomeComponent implements OnInit {
     this.listas = this.configService.listas;
     this.cc = this.configService.cc;
   }
-
 
 }
