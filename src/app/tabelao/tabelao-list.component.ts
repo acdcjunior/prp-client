@@ -5,8 +5,10 @@ import { Tabelao, TabelaoService } from './tabelao.service';
 
 import {DataTable} from 'primeng/primeng';
 import {Column} from 'primeng/primeng';
+import {Dropdown} from 'primeng/primeng';
+import {SelectItem} from 'primeng/primeng';
+
 import {RepositoryService} from "../repository/repository.service";
-import {CookieService} from "angular2-cookie/core";
 
 @Component({
   template: `
@@ -17,7 +19,8 @@ import {CookieService} from "angular2-cookie/core";
         <span class="badge">{{tabelao.id}}</span> {{tabelao.name}}
       </li>
     </ul>
-    
+
+    <p-dropdown [options]="cities" [(ngModel)]="selectedCity"></p-dropdown>
     
     <h3 class="first">Basic</h3>
     <p-dataTable [value]="tabeloes">
@@ -25,21 +28,28 @@ import {CookieService} from "angular2-cookie/core";
         <p-column field="name" header="name"></p-column>
     </p-dataTable>
   `,
-  providers: [RepositoryService, CookieService],
-  directives: [DataTable, Column]
+  providers: [RepositoryService],
+  directives: [DataTable, Column, Dropdown]
 })
 export class TabelaoListComponent implements OnInit, OnDestroy {
 
-  tabeloes: Tabelao[] = [];
+  private tabeloes: Tabelao[] = [];
   private selectedId: number;
   private sub: any;
+
+  private cities: SelectItem[];
+
+  private selectedCity: string;
 
   constructor(
     private service: TabelaoService,
     private route: ActivatedRoute,
     private router: Router,
     private repository: RepositoryService
-  ) { }
+  ) {
+    this.cities = [{label:'Inicial', value:'IN'}];
+  }
+
 
   isSelected(tabelao: Tabelao) { return tabelao.id === this.selectedId; }
 
@@ -48,21 +58,24 @@ export class TabelaoListComponent implements OnInit, OnDestroy {
       .params
       .subscribe(params => {
         this.selectedId = +params['id'];
-
         this.repository.getTodos().subscribe(
           (x) => {
             console.log('Next: ', x);
             this.tabeloes.push(x);
           },
-          function (err) {
-            console.log('Error: %s', err);
-          },
-          function () {
-            console.log('Completed');
-          });
-
-        //TabelaoService.getTabeloes().then(tabeloes => this.tabeloes = tabeloes);
+          (err) => console.log('Error: %s', err),
+          () => console.log('Completed')
+        );
       });
+
+    this.repository.getIds().subscribe(
+      (x) => {
+        console.log('Next: ', x);
+        this.cities.push({label: x , value: x});
+      },
+      (err) => console.log('Error: %s', err),
+      () => console.log('Completed')
+    );
   }
 
   ngOnDestroy() {
