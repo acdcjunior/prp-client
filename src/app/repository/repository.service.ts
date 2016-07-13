@@ -14,9 +14,9 @@ export class RepositoryService {
     console.log("Did PouchDB load?", PouchDB);
     console.log("Did MomentJS load?", moment);
 
-    let pouchCookieUrl = this.configService.mainUrl + '/' + this.configService.listas;
-    console.info("Resolved PouchDB URL: ", pouchCookieUrl);
-    this.pouchdb = new PouchDB(pouchCookieUrl);//, {ajax: {cache: true}});
+    let pouchUrl = this.configService.mainUrl + '/' + this.configService.listas;
+    console.info("Resolved PouchDB URL: ", pouchUrl);
+    this.pouchdb = new PouchDB(pouchUrl);//, {ajax: {cache: true}});
   }
 
   getTodos(): Observable<any> {
